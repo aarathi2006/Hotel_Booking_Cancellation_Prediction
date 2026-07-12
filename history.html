@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="prediction-container">
+
+    <h1 align="center">Prediction History</h1>
+
+    {% if history %}
+
+    <table class="history-table">
+
+        <tr>
+
+            <th>Date</th>
+
+            <th>Lead Time</th>
+
+            <th>ADR</th>
+
+            <th>Adults</th>
+
+            <th>Prediction</th>
+
+            <th>Probability</th>
+
+        </tr>
+
+        {% for row in history %}
+
+        <tr>
+
+            <td>{{ row['created_at'] }}</td>
+
+            <td>{{ row['lead_time'] }}</td>
+
+            <td>{{ row['adr'] }}</td>
+
+            <td>{{ row['adults'] }}</td>
+
+            <td>
+
+                {% if row['prediction']=="Cancelled" %}
+
+                    <span style="color:red;font-weight:bold;">
+                        Cancelled
+                    </span>
+
+                {% else %}
+
+                    <span style="color:green;font-weight:bold;">
+                        Not Cancelled
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>{{ "%.2f"|format(row['probability']) }}%</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <h3 align="center">
+        No prediction history found.
+    </h3>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

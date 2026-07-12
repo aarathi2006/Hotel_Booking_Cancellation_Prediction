@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<nav class="navbar">
+
+    <h2>🏨 Hotel Booking Cancellation Prediction</h2>
+
+    <div>
+
+        Welcome, {{name}}
+
+        <a href="{{url_for('logout')}}">Logout</a>
+
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <h1>AI Powered Hotel Booking Cancellation Prediction</h1>
+
+    <p>
+        Predict whether a customer is likely to cancel a hotel booking using
+        Machine Learning.
+    </p>
+
+    <a href="{{url_for('predict')}}">
+        <button class="hero-btn">
+            Predict Now
+        </button>
+    </a>
+
+</section>
+
+<section class="cards">
+
+<div class="card-box">
+
+<h2>Prediction History</h2>
+
+<p>
+
+View all previous predictions.
+
+</p>
+
+<a href="{{url_for('history')}}">
+
+<button>
+
+History
+
+</button>
+
+</a>
+
+</div>
+
+<div class="card-box">
+
+<h2>About Project</h2>
+
+<p>
+
+Know more about the AI model.
+
+</p>
+
+<a href="{{url_for('about')}}">
+
+<button>
+
+About
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

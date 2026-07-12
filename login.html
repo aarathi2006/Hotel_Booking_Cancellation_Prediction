@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="card">
+
+<img src="{{url_for('static',filename='images/logo.png')}}" class="logo">
+
+<h1>Welcome Back</h1>
+
+<p>Hotel Booking Cancellation Prediction</p>
+
+<form method="POST">
+
+<input type="email"
+
+name="email"
+
+placeholder="Email"
+
+required>
+
+<input
+
+type="password"
+
+name="password"
+
+placeholder="Password"
+
+required>
+
+<button>
+
+Login
+
+</button>
+
+</form>
+
+<p>
+
+Don't have an account?
+
+<a href="{{url_for('signup')}}">Signup</a>
+
+</p>
+
+</div>
+
+</div>
+
+{% endblock %}

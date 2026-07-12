@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="prediction-container">
+
+<h1>Prediction Result</h1>
+
+<h2>
+
+Prediction :
+
+{% if prediction=="Cancelled" %}
+
+<span style="color:red">
+
+Booking will be Cancelled
+
+</span>
+
+{% else %}
+
+<span style="color:green">
+
+Booking will Not be Cancelled
+
+</span>
+
+{% endif %}
+
+</h2>
+
+<hr>
+
+<h3>Probability : {{probability}} %</h3>
+
+<h3>Lead Time : {{lead_time}}</h3>
+
+<h3>Total Stay : {{total_stay}} Days</h3>
+
+<h3>Total Cost : ₹ {{total_cost}}</h3>
+
+<h3>ADR Per Guest : ₹ {{adr_per_guest}}</h3>
+
+<br>
+
+<a href="{{url_for('predict')}}">
+
+<button class="predict-btn">
+
+Predict Again
+
+</button>
+
+</a>
+
+</div>
+
+{% endblock %}

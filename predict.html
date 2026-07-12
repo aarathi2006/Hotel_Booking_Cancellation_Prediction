@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="prediction-container">
+
+    <h1>🏨 Hotel Booking Cancellation Prediction</h1>
+    <p style="text-align:center; margin-bottom:30px;">
+        Enter the booking details below to predict whether the booking is likely to be cancelled.
+    </p>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+
+        <!-- Row 1 -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Lead Time (Days)</label>
+                <input type="number"
+                       name="lead_time"
+                       min="0"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Arrival Day of Month</label>
+                <input type="number"
+                       name="arrival_day"
+                       min="1"
+                       max="31"
+                       required>
+            </div>
+
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Arrival Week Number</label>
+                <input type="number"
+                       name="arrival_week"
+                       min="1"
+                       max="53"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Weekend Nights</label>
+                <input type="number"
+                       name="weekend_nights"
+                       min="0"
+                       required>
+            </div>
+
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Week Nights</label>
+                <input type="number"
+                       name="week_nights"
+                       min="0"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Average Daily Rate (ADR)</label>
+                <input type="number"
+                       name="adr"
+                       step="0.01"
+                       min="0"
+                       required>
+            </div>
+
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Adults</label>
+                <input type="number"
+                       name="adults"
+                       min="1"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Agent ID</label>
+                <input type="number"
+                       name="agent"
+                       min="0"
+                       required>
+            </div>
+
+        </div>
+
+        <!-- Row 5 -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Total Special Requests</label>
+                <input type="number"
+                       name="special_requests"
+                       min="0"
+                       max="5"
+                       required>
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <button type="submit" class="predict-btn">
+                🔍 Predict Booking
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
